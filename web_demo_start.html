@@ -1,4 +1,57 @@
-<!DOCTYPE html>
-<html>
-   <head>
+<template>
+  <style>
+      h5{
+         font-size: 1em;      
+         text-transform: capitalize;
+          
+      }
+      .chat-thumbnail{
+          width:200px;
+          height:80px;
+          background-color: rgb(235,235,255);
+          margin:0;
+          border: 1px solid rgb(220, 220, 235);
+          padding: 3px;
+          
+      }
+    
+      .chat-thumbnail h5, .chat-thumbnail h6 {
+          margin: 0;
+          margin-top:5px;
+        
+      }
+    </style>
+    <div class='chat-thumbnail'>
+    <h5> Here is where the username will go</h5>
+    <h6> Here is where the status will go</h6>
+    </div>
+</template>
+
+<script>
+    (function () {
+        var importDoc = document.currentScript.ownerDocument;
+        var ChatThumbnail = Object.create(HTMLElement.prototype);
+    
+    ChatThumbnail.createCallback = function () {
+       var template = importDoc.querySelector('template');
+       var templateClone = document.importNode(template.content, true);
+       
+        templateClone.querySelector("h5").innerHTML =this.getAttribute('uname');
+        templateClone.querySelector("h6").innerHTML = this.getAttribute('sts');
+        
+        var root = this.createShadowRoot();
+        root.appendChild(templateClone);
+        //this.innerHTML = templateClone.querySelector(".chat-thumbnail)
+        }
+     document.registerElement('chat-thumbnail', {prototype: ChatThumbnail });
+    
+    })
+   
+        
+   
+    
+    
+    </script>
+
+</script>
    
