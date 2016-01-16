@@ -32,7 +32,7 @@
         var importDoc = document.currentScript.ownerDocument;
         var ChatThumbnail = Object.create(HTMLElement.prototype);
     
-    ChatThumbnail.createCallback = function () {
+    ChatThumbnail.createdCallback = function () {
        var template = importDoc.querySelector('template');
        var templateClone = document.importNode(template.content, true);
        
@@ -45,7 +45,7 @@
         }
      document.registerElement('chat-thumbnail', {prototype: ChatThumbnail });
     
-    })
+    })();
    
 </script>
 
